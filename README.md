@@ -41,7 +41,7 @@ pip install --upgrade TensorFlow
 pip install matplotlib
 ```
 
-## Demo
+### Demo
 The `samples` folder contains 2 images for object detection. Default sample for running object detection is set as `sample2.jpg`. Additionally, this folder includes the image utilized by the author of the reference repository for the object detection demo. You can change the sample by editing `demo.py`
 
 For running object detection run this line of code
@@ -49,7 +49,7 @@ For running object detection run this line of code
 python3 demo.py
 ```
 
-## Detection Samples
+## Image annotations
 
 **Sample2.jpg**
 ![sample2](samples/sample2_boxes.png)
