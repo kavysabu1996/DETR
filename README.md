@@ -53,11 +53,11 @@ load default sample
 ```
 python3 run.py
 ```
-give the image path as the argument to load image of your choice
+give image path as argument to load image of your choice
 ```
 python3 run.py --image samples/sample1.jpg
 ```
-give the url as the argument to load image from web
+give url as argument to load image from web
 ```
 python3 run.py --image image_url
 ```
