@@ -71,7 +71,8 @@ python3 run.py --image image_url
 ![sample1](samples/sample1_boxes.png)
 
 ## References
-[detr_tensorflow](https://github.com/Leonardo-Blanger/detr_tensorflow): reference repo
+- [detr_tensorflow](https://github.com/Leonardo-Blanger/detr_tensorflow): reference repo
+- [Attention Is All You Need paper](https://arxiv.org/pdf/1706.03762.pdf)
 
 ## Acknowledgement
 1. [Mr. Thomas Paul](https://github.com/mrtpk)
