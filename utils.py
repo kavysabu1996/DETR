@@ -1,8 +1,22 @@
 import tensorflow as tf
+from os import path
+import urllib
+from urllib import request
+import numpy as np
+import cv2
 
-def read_jpeg_image(img_path):
-    image = tf.io.read_file(img_path)
-    image = tf.image.decode_jpeg(image, channels=3)
+def read_image(input_image):
+    if isinstance(input_image, str):  
+        if input_image.startswith('http'):  
+            resp = urllib.request.urlopen(input_image)
+            image_array = np.asarray(bytearray(resp.read()), dtype=np.uint8)
+            image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
+        else:  
+            image = cv2.imread(input_image)
+    elif isinstance(input_image, np.ndarray): 
+        image = input_image
+    else:
+        print("Error: Invalid input image format.")
     return image
 
 def resize(image, min_side=800.0, max_side=1333.0):
@@ -22,7 +36,6 @@ def resize(image, min_side=800.0, max_side=1333.0):
 def build_mask(image):
     return tf.zeros(tf.shape(image)[:2], dtype=tf.bool)
 
-
 def cxcywh2xyxy(boxes):
     cx, cy, w, h = [boxes[..., i] for i in range(4)]
 
@@ -38,12 +51,6 @@ def absolute2relative(boxes, img_size):
     scale = tf.constant([width, height, width, height], dtype=tf.float32)
     boxes *= scale
     return boxes
-
-
-def xyxy2xywh(boxes):
-    xmin, ymin, xmax, ymax = [boxes[..., i] for i in range(4)]
-    return tf.stack([xmin, ymin, xmax - xmin, ymax - ymin], axis=-1)
-
 
 def preprocess_image(image):
     image = resize(image, min_side=800.0, max_side=1333.0)

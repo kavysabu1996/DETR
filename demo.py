@@ -1,9 +1,9 @@
 import tensorflow as tf
 from os import path
-from utils import (read_jpeg_image,preprocess_image,absolute2relative)
+from utils import read_image,preprocess_image,absolute2relative
 import matplotlib.pyplot as plt
 from DETR import DETR
-
+import argparse
 import os
 
 CLASSES = [
@@ -23,14 +23,16 @@ CLASSES = [
     'toothbrush',
 ]
 
-# colors for visualization
-# COLORS = [[0.000, 0.447, 0.741], [0.850, 0.325, 0.098], [0.929, 0.694, 0.125],
-#           [0.494, 0.184, 0.556], [0.466, 0.674, 0.188], [0.301, 0.745, 0.933]]
 
 COLORS = [[0.000, 0.355, 0.201], [0.480, 0.025, 0.018], [0.993, 0.904, 0.195],
           [0.918, 0.806, 0.776], [0.146, 0.064, 0.339], [0.073, 0.423, 0.216]]
 
-image = read_jpeg_image(path.join('samples', 'sample2.jpg'))
+parser = argparse.ArgumentParser(description="Process input image")
+parser.add_argument('--image', type=str, default="samples/sample2.jpg")
+args = parser.parse_args()
+
+image = read_image(args.image)
+
 inp_img, mask = preprocess_image(image)
 inp_img = tf.expand_dims(inp_img, axis=0)
 mask = tf.expand_dims(mask, axis=0)
@@ -47,7 +49,6 @@ scores = scores[keep]
 boxes = boxes[keep]
 boxes = absolute2relative(boxes, (image.shape[1], image.shape[0])).numpy()
 
-
 def plot_results(img, labels, probs, boxes):
     plt.figure(figsize=(14, 8))
     plt.imshow(img)
@@ -63,5 +64,5 @@ def plot_results(img, labels, probs, boxes):
     plt.subplots_adjust(left=0, right=1, top=1, bottom=0)
     plt.show()
 
-plot_results(image.numpy(), labels, scores, boxes)
+plot_results(image, labels, scores, boxes)
 
