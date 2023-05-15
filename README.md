@@ -4,7 +4,9 @@
 
 ## About this implementation
 
-The internship project assigned to me was to learn about DETR and implement it using TensorFlow. I used a [git repo](https://github.com/Leonardo-Blanger/detr_tensorflow) which is implemented using TensorFlow as a reference and incorporated its weights and some scripts into my project. The author provided four weights, and I selected [detr-r50-e632da11.h5](https://drive.google.com/file/d/1Nd1P6g1mqqf6Gzl3BW1TavsjripA3Sa3/view?usp=share_link) from them.
+This GitHub project serves as my endeavor to explore and gain hands-on experience in the field of transformers. Through this project, I aim to enhance my knowledge and skills in this area while showcasing my progress and learning journey. 
+
+For this project, I used a [git repo](https://github.com/Leonardo-Blanger/detr_tensorflow) which is implemented using TensorFlow as a reference and incorporated its weights and some scripts into my project. The author provided four weights, and I selected [detr-r50-e632da11.h5](https://drive.google.com/file/d/1Nd1P6g1mqqf6Gzl3BW1TavsjripA3Sa3/view?usp=share_link) from them.
 This reference repo and the original implementation, both used multi-head attention mechanism. But I chose single-head attention instead. So the downloaded weights can't be direcly loaded to the DETR model. To tackle this problem, I saved model weights in numpy format for all layers except ResNet50 backbone, which I saved in h5 format. The weight-saving code is added to the [forked version](https://github.com/kavysabu1996/detr_tensorflow) of the reference repository.
 
 ## How to use this repo for object detection
@@ -62,5 +64,5 @@ python3 demo.py
 
 ## Acknowledgement
 1. [Mr. Thomas Paul](https://github.com/mrtpk)
-2. [Mr. Sambhu Surya Mohan]
+2. [Mr. Sambhu Surya Mohan](https://github.com/sambhusuryamohan)
 
