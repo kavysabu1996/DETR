@@ -2,9 +2,8 @@ from backbone import ResNet50Backbone
 from linear_layer import Linear
 from position_embeddings import PositionEmbeddingSine
 from transformer import Transformer
-from utils import cxcywh2xyxy,read_jpeg_image,preprocess_image
+from utils import cxcywh2xyxy
 from tensorflow.keras.layers import ReLU
-from os import path
 import tensorflow as tf
 import numpy as np
 
