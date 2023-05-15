@@ -49,15 +49,15 @@ The `samples` folder contains 2 images for object detection. Default sample for 
 
 For running object detection run this line of code
 
-**loads default sample. ie. sample2.jpg**
+load default sample
 ```
 python3 run.py
 ```
-**give the image path as the argument to load image of your choice**
+give the image path as the argument to load image of your choice
 ```
 python3 run.py --image samples/sample1.jpg
 ```
-**give the url as the argument to load image from web**
+give the url as the argument to load image from web
 ```
 python3 run.py --image image_url
 ```
