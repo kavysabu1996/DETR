@@ -57,3 +57,10 @@ python3 demo.py
 **Sample1.jpg**
 ![sample1](samples/sample1_boxes.png)
 
+## References
+[detr_tensorflow](https://github.com/Leonardo-Blanger/detr_tensorflow): reference repo
+
+## Acknowledgement
+1. [Mr. Thomas Paul](https://github.com/mrtpk)
+2. [Mr. Sambhu Surya Mohan]
+
